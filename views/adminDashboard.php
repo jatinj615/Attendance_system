@@ -28,7 +28,6 @@
   </div>
   <div class="tab-pane fade" id="addStudent" role="tabpanel" aria-labelledby="profile-tab">
 	<div class="main-content container col-md-4">
-		<form data-toggle="validator" role="form" id="myForm">
 		<div class="form-group">
 		  <label for="name">Name</label>
 		  <input type="text" class="form-control" id="stu-name" aria-describedby="emailHelp" placeholder="Enter name" required>
@@ -50,7 +49,6 @@
 		  <input type="password" class="form-control" id="stu-exampleInputPassword2" placeholder="Confirm Password" name="password" required>
 		</div>
 		<button type="submit" class="btn btn-primary" id="addStu">Add Now</button>
-	</form>
 	</div>
   </div>
   <div class="tab-pane fade" id="manageAttendants" role="tabpanel" aria-labelledby="contact-tab">
@@ -88,7 +86,6 @@
         </button>
       </div>
       <div class="modal-body">
-      	<form data-toggle="validator" role="form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="att-name" aria-describedby="emailHelp" placeholder="Enter name" required="true">
@@ -111,7 +108,7 @@
           </div>
           <button type="submit" class="btn btn-primary" id="addAtt">Add Now</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</form>
+
       </div>
     </div>
   </div>
@@ -126,7 +123,6 @@
         </button>
       </div>
       <div class="modal-body">
-      	<form data-toggle="validator" role="form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="edit-att-name" aria-describedby="emailHelp" placeholder="Enter name" required="true">
@@ -149,27 +145,10 @@
           </div>
           <button type="submit" class="btn btn-primary" id="editAtt">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</form>
+
       </div>
     </div>
   </div>
 </div>
  <div class="modal-overlay"></div>
- <script>
- // Example starter JavaScript for disabling form submissions if there are invalid fields
- (function() {
-   'use strict';
-
-   window.addEventListener('load', function() {
-     var form = document.getElementById('myForm');
-     form.addEventListener('submit', function(event) {
-       if (form.checkValidity() === false) {
-         event.preventDefault();
-         event.stopPropagation();
-       }
-       form.classList.add('was-validated');
-     }, false);
-   }, false);
- })();
- </script>
    <?php include 'footer.php' ?>

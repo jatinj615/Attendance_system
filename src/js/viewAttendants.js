@@ -24,7 +24,7 @@ function editAtt(id,name,email,phone_no){
 				$.post('../controllers/updateAttendants.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
 					if(data == "Success"){
 						alert(data);
-						// attendants();
+						attendants();
 						// test();
 					}else{
 						alert(data);
@@ -74,7 +74,7 @@ function addAttendants(){
 	// console.log('inside');	
 		$.post('../controllers/addAttendants.php?name='+name+'&email='+email+'&phone='+phone+'&password='+pass,function(data,status){
 			// console.log('works');
-			// alert(data);
+			alert(data);
 			attendants();
 		});
 }
