@@ -1,21 +1,54 @@
 function deleteAtt(id){
-	$.post('../controllers/deleteAttendant?id='+id,function(data,status){
-		
+	$.post('../controllers/deleteAttendant.php?id='+id,function(data,status){
+		if(data == "Successfully Deleted"){
+			alert(data);
+			attendants();
+		}
 	});
 }
 
-function editAtt(id){
-	console.log(id);
+function editAtt(id,name,email,phone_no){
+	// console.log(name);
+	$('#edit-att-name').val(name);
+	$('#edit-exampleInputEmail1').val(email);
+	$('#edit-phonenumber').val(phone_no);
+	$('#editAtt').click(function(){
+		var newname = $('#edit-att-name').val();
+		var newemail = $('#edit-exampleInputEmail1').val();
+		var newphone_no = $('#edit-phonenumber').val();
+		var newpassword = $('#edit-exampleInputPassword1').val();
+		var confnewpass = $('#edit-exampleInputPassword2').val();
+		if(newname != name || newemail != email || newphone_no != phone_no){
+			if(newpassword == confnewpass){
+				$.post('../controllers/updateAttendants.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
+					if(data == "Success"){
+						attendants();
+					}
+				});
+			}else{
+				alert("Password Does not match");
+			}
+		}
+	});
 }
 
 function attendants(){
 	$.post('../controllers/getAttendants.php',function(data, status){
-		
-		var obj = $.parseJSON(data);
-		// console.log(obj);
-		for(var i = 0; i < obj['Attendant'].length; i++){
-			// console.log(obj['Attendant'][i]);
-			$('#tbody').append('<tr><td>'+obj['Attendant'][i].id+'</td><td>'+obj['Attendant'][i].name+'</td><td>'+obj['Attendant'][i].email+'</td><td>'+obj['Attendant'][i].phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick=editAtt('+obj['Attendant'][i].id+') href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+		$('#tbody').empty();
+		if(data != "No Attendants Found" && data != "Something Went Wrong"){
+			var obj = $.parseJSON(data);
+			// console.log(data);
+			for(var i = 0; i < obj['Attendant'].length; i++){
+				// console.log(obj['Attendant'][i]);
+				var id = obj['Attendant'][i].id;
+				var name = obj['Attendant'][i].name;
+				var email = obj['Attendant'][i].email;
+				var phone_no = obj['Attendant'][i].phone_no;
+				$('#tbody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick=editAtt('+id+',"'+name+'","'+email+'",'+phone_no+') href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+			}
+			
+		}else{
+			alert(data);
 		}
 	});
 }

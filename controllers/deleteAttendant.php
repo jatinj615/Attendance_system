@@ -13,6 +13,6 @@ include 'dbconnect.php';
   		echo "Something went wrong...!";
   	}
   }else{
-  	echo "Somethin went wrong...!";
+  	echo "Something went wrong...!";
   }
  ?>

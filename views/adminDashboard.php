@@ -34,19 +34,19 @@
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputEmail1">Email address</label>
-		  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+		  <input type="email" class="form-control" id="stu-exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
 		</div>
 		<div class="form-group">
 		  <label for="phonenumber">Phone Number</label>
-		  <input type="number" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number">
+		  <input type="number" class="form-control" id="stu-phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number">
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputPassword1">Password</label>
-		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+		  <input type="password" class="form-control" id="stu-exampleInputPassword1" placeholder="Password" name="password">
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputPassword2">Confirm Password</label>
-		  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" name="password">
+		  <input type="password" class="form-control" id="stu-exampleInputPassword2" placeholder="Confirm Password" name="password">
 		</div>
 		<button type="submit" class="btn btn-primary" id="addStu">Add Now</button>
 	</div>
@@ -143,7 +143,7 @@
             <label for="exampleInputPassword2">Confirm Password</label>
             <input type="password" class="form-control" id="edit-exampleInputPassword2" placeholder="Confirm Password" name="password">
           </div>
-          <button type="submit" class="btn btn-primary" id="addAtt">Add Now</button>
+          <button type="submit" class="btn btn-primary" id="editAtt">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
       </div>
