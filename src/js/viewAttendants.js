@@ -13,6 +13,7 @@ function editAtt(id,name,email,phone_no){
 	$('#edit-exampleInputEmail1').val(email);
 	$('#edit-phonenumber').val(phone_no);
 	$('#editAtt').click(function(){
+		console.log
 		var newname = $('#edit-att-name').val();
 		var newemail = $('#edit-exampleInputEmail1').val();
 		var newphone_no = $('#edit-phonenumber').val();
@@ -22,14 +23,22 @@ function editAtt(id,name,email,phone_no){
 			if(newpassword == confnewpass){
 				$.post('../controllers/updateAttendants.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
 					if(data == "Success"){
-						attendants();
+						alert(data);
+						// attendants();
+						// test();
+					}else{
+						alert(data);
 					}
 				});
 			}else{
-				alert("Password Does not match");
+				alert("Something went wrong");
 			}
 		}
 	});
+}
+
+function test(){
+	console.log('works');
 }
 
 function attendants(){
@@ -42,9 +51,10 @@ function attendants(){
 				// console.log(obj['Attendant'][i]);
 				var id = obj['Attendant'][i].id;
 				var name = obj['Attendant'][i].name;
+				// console.letog(name);
 				var email = obj['Attendant'][i].email;
 				var phone_no = obj['Attendant'][i].phone_no;
-				$('#tbody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick=editAtt('+id+',"'+name+'","'+email+'",'+phone_no+') href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+				$('#tbody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
 			}
 			
 		}else{
@@ -52,6 +62,9 @@ function attendants(){
 		}
 	});
 }
+
+
+
 function addAttendants(){
 	var name = $('#att-name').val();
 	var email = $('#exampleInputEmail1').val();
@@ -61,7 +74,7 @@ function addAttendants(){
 	// console.log('inside');	
 		$.post('../controllers/addAttendants.php?name='+name+'&email='+email+'&phone='+phone+'&password='+pass,function(data,status){
 			// console.log('works');
-			alert(data);
+			// alert(data);
 			attendants();
 		});
 }
