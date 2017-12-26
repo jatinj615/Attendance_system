@@ -33,6 +33,10 @@
 		  <input type="text" class="form-control" id="stu-name" aria-describedby="emailHelp" placeholder="Enter name" required>
 		</div>
 		<div class="form-group">
+		  <label for="address">Address</label>
+		  <input type="text" class="form-control" id="stu-address" aria-describedby="emailHelp" placeholder="Enter name" required>
+		</div>
+		<div class="form-group">
 		  <label for="exampleInputEmail1">Email address</label>
 		  <input type="email" class="form-control" id="stu-exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
 		</div>
@@ -48,7 +52,7 @@
 		  <label for="exampleInputPassword2">Confirm Password</label>
 		  <input type="password" class="form-control" id="stu-exampleInputPassword2" placeholder="Confirm Password" name="password" required>
 		</div>
-		<button type="submit" class="btn btn-primary" id="addStu">Add Now</button>
+		<button type="submit" class="btn btn-primary" id="addStu" data-toggle="modal" data-target="#addStudentCourse">Add Now</button>
 	</div>
   </div>
   <div class="tab-pane fade" id="manageAttendants" role="tabpanel" aria-labelledby="contact-tab">
@@ -75,7 +79,9 @@
   	
   </div>
 </div>
-	
+
+<!-- modals -->
+	<!-- modal1 -->
 	<div class="modal fade" id="addAttendant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -113,6 +119,8 @@
     </div>
   </div>
 </div>
+<!-- /modal1 -->
+<!-- modal2 -->
 <div class="modal fade" id="editAttendant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -150,5 +158,31 @@
     </div>
   </div>
 </div>
+<!-- /modal2 -->
+<!-- modal3 -->
+<div class="modal fade" id="addStudentCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Student's Course Details</h5>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Course Name</label>
+            <input type="text" class="form-control" id="course-name" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <div class="form-group">
+            <label for="name">Class</label>
+            <input type="text" class="form-control" id="class" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <button type="submit" class="btn btn-primary" id="assignCourse">Assign</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal3 -->
+<!-- /modals -->
+
  <div class="modal-overlay"></div>
    <?php include 'footer.php' ?>
