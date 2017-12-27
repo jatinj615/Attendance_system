@@ -9,7 +9,7 @@
   	if($result && mysql_num_rows($result) > 0){
   		$i = 0;
   		while ($row = mysql_fetch_assoc($result)) {
-  			$data['Students'][$i] = $row;
+  			$data['Student'][$i] = $row;
   			$i++;
   		}
   		print_r(json_encode($data));

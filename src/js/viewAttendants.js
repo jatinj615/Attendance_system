@@ -9,7 +9,23 @@ function deleteAtt(id){
 
 function getStudents(){
 	$.post('../controllers/getStudents.php',function(data,status){
-		console.log(data);
+		$('#tstubody').empty();
+		if(data != "No Attendants Found" && data != "Something Went Wrong"){
+			var obj = $.parseJSON(data);
+			// console.log(data);
+			for(var i = 0; i < obj['Student'].length; i++){
+				// console.log(obj['Student'][i]);
+				var id = obj['Student'][i].id;
+				var name = obj['Student'][i].name;
+				// console.letog(name);
+				var email = obj['Student'][i].email;
+				var phone_no = obj['Student'][i].phone_no;
+				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Student'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+			}
+			
+		}else{
+			alert(data);
+		}
 	});
 }
 
