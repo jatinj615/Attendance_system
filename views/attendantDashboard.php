@@ -1,14 +1,19 @@
 <?php
 	session_start();
-	if (isset($_SESSION['id']) && $_SESSION['id'] != null) {
-		$name = $_SESSION['name'];
+	if (isset($_SESSION['att-id']) && $_SESSION['att-id'] != null) {
+		$name = $_SESSION['att-name'];
 	}else{
 		header('Location: index.php');
 	}
  ?>
 
  <?php include 'header.php' ?>
-<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+ <div class="main-content container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+<ul class="nav nav-tabs col-md-offset-4" id="myTab" role="tablist" style="margin-left: 44rem;margin-right: 43rem">
   <li class="nav-item">
     <a class="nav-link active" id="mark-att" data-toggle="tab" href="#markAttendance" role="tab" aria-controls="home" aria-selected="true">Mark Attendance</a>
   </li>
@@ -21,13 +26,47 @@
 </ul>
 <div class="tab-content" id="myTabContent">
 	  <div class="tab-pane fade" id="markAttendance" role="tabpanel" aria-labelledby="contact-tab">
-	  	
-	  </div>
+	  			   <table class="table table-hover">
+	  		    <thead>
+	  		      <tr>
+	  		        <th scope="col">id</th>
+	  		        <th scope="col">Name</th>
+	  		        <th scope="col">Course</th>
+	  		        <th scope="col">Class</th>
+	  		       	<th scope="col">Mark Attendance</th>
+	  		      </tr>
+	  		    </thead>
+	  		    <tbody id="tattendancebody">
+	  		    </tbody>
+	  		  </table>
+	  		</div>
 	  <div class="tab-pane fade" id="viewAttendance" role="tabpanel" aria-labelledby="contact-tab">
 	  	
 	  </div>
 	  <div class="tab-pane fade" id="bookStudio" role="tabpanel" aria-labelledby="contact-tab">
-	  	
+	  	<div class="row" style="opacity: 0">
+	  	          <div id="main-chart" style="width: 1px; height: 20px;"></div>
+	  	          </div>
+	  	                
+	  	        <div class="row">
+	  	          <div class="col-xs-12 col-md-4" style="opacity: 0">
+	  	            <div class="widget be-loading">
+	  	              <div class="widget-chart-container">
+	  	                <div id="top-sales" style="width:1px; height: 178px;"></div>
+	  	                </div>
+	  	              </div>
+	  	          </div>
+	  	          <div class="col-xs-12 col-md-4">
+	  	            <div class="widget widget-calendar be-loading">
+	  	              <div id="calendar-widget"></div>
+	  	            </div>
+	  	          </div>
+	  	        </div>
 	  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <?php include 'footer.php' ?>

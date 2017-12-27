@@ -16,32 +16,33 @@
     }else{
       echo "Something Went wrong...!";
     }
+    echo $query;
     $result = mysql_query($query);
     if($result && mysql_num_rows($result)>0){
       if($category == 'admin'){
         while($row = mysql_fetch_assoc($result)){
           // $admin = json_encode($row);
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['name'] = $row['name'];
+          $_SESSION['admin-id'] = $row['id'];
+          $_SESSION['admin-name'] = $row['name'];
           header('Location: ../views/adminDashboard.php');
         }
       }elseif ($category == 'student') {
         while($row = mysql_fetch_assoc($result)){
           // $admin = json_encode($row);
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['name'] = $row['name'];
+          $_SESSION['stu-id'] = $row['id'];
+          $_SESSION['stu-name'] = $row['name'];
           header('Location: ../views/studentDashboard.php');
         }
       }elseif ($category == 'attendant') {
         while($row = mysql_fetch_assoc($result)){
           // $admin = json_encode($row);
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['name'] = $row['name'];
+          $_SESSION['att-id'] = $row['id'];
+          $_SESSION['att-name'] = $row['name'];
           header('Location: ../views/attendantDashboard.php');
         }
       }
     }else{
-      header('Location: ../views/index.php');
+      // header('Location: ../views/index.php');
     }
   }else{
     echo "Something Went wrong";

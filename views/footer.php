@@ -2,6 +2,8 @@
 <script src="//cdn.viralwoot.com/v2/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="../src/js/viewAttendants.js"></script>
 <script src="../src/js/adminActivity.js"></script>
+<script src="../src/js/studentActivity.js"></script>
+<script src="../src/js/attendantActivity.js"></script>
     <script src="//cdn.viralwoot.com/v2/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
     <script src="//cdn.viralwoot.com/v2/assets/js/main.js" type="text/javascript"></script>
     <script src="//cdn.viralwoot.com/v2/assets/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>

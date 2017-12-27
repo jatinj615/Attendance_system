@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if (isset($_SESSION['id']) && $_SESSION['id'] != null) {
-		$name = $_SESSION['name'];
+	if (isset($_SESSION['stu-id']) && $_SESSION['stu-id'] != null) {
+		$name = $_SESSION['stu-name'];
 	}else{
 		header('Location: index.php');
 	}
