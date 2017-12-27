@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	App.init();
 	getStudents();
 	$('#manage-stu').click(function(){
 		getStudents();

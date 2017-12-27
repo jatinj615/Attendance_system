@@ -20,7 +20,7 @@ function getStudents(){
 				// console.letog(name);
 				var email = obj['Student'][i].email;
 				var phone_no = obj['Student'][i].phone_no;
-				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Student'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a href="#" onclick="deleteAtt('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
 			}
 			
 		}else{
@@ -76,7 +76,7 @@ function attendants(){
 				// console.letog(name);
 				var email = obj['Attendant'][i].email;
 				var phone_no = obj['Attendant'][i].phone_no;
-				$('#tbody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td></tr>');
+				$('#tbody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a href="#" onclick="deleteAtt('+obj['Attendant'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
 			}
 			
 		}else{

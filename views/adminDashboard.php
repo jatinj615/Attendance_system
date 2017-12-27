@@ -8,7 +8,12 @@
  ?>
 
  <?php include 'header.php' ?>
-<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+ <div class="main-content container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+<ul class="nav nav-tabs col-md-offset-3" id="myTab" role="tablist" style="margin-right: 38rem">
   <li class="nav-item">
     <a class="nav-link active" id="manage-stu" data-toggle="tab" href="#manageStudents" role="tab" aria-controls="home" aria-selected="true">Manage Students</a>
   </li>
@@ -22,8 +27,9 @@
     <a class="nav-link" id="manage-booking" data-toggle="tab" href="#manageBookings" role="tab" aria-controls="contact" aria-selected="false">Manage Bookings</a>
   </li>
 </ul>
+
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="manageStudents" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-pane fade" id="manageStudents" role="tabpanel" aria-labelledby="home-tab">
   	   <table class="table table-hover">
       <thead>
         <tr>
@@ -38,8 +44,8 @@
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade" id="addStudent" role="tabpanel" aria-labelledby="profile-tab">
-	<div class="main-content container col-md-4">
+  <div class="tab-pane fade col-md-offset-3" id="addStudent" role="tabpanel" aria-labelledby="profile-tab">
+	<div class="main-content container col-md-6">
 		<div class="form-group">
 		  <label for="name">Name</label>
 		  <input type="text" class="form-control" id="stu-name" aria-describedby="emailHelp" placeholder="Enter name" required>
@@ -67,8 +73,8 @@
 		<button type="submit" class="btn btn-primary" id="addStu" data-toggle="modal" data-target="#addStudentCourse">Add Now</button>
 	</div>
   </div>
-  <div class="tab-pane fade" id="manageAttendants" role="tabpanel" aria-labelledby="contact-tab">
-  	<div class="main-content container col-md-6">
+  <div class="tab-pane fade col-md-offset-3" id="manageAttendants" role="tabpanel" aria-labelledby="contact-tab">
+  	<div class="main-content container col-md-7">
 		<table class="table table-hover">
   <thead>
     <tr>
@@ -88,14 +94,30 @@
 	</div>
   </div>
   <div class="tab-pane fade" id="manageBookings" role="tabpanel" aria-labelledby="contact-tab">
-  	
+  	<div class="row" style="opacity: 0">
+            <div id="main-chart" style="width: 2px; height: 20px;"></div>
+            </div>
+                  
+          <div class="row">
+            <div class="col-xs-12 col-md-4" style="opacity: 0">
+              <div class="widget be-loading">
+                <div class="widget-chart-container">
+                  <div id="top-sales" style="width:2px; height: 178px;"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <div class="widget widget-calendar be-loading">
+                <div id="calendar-widget"></div>
+              </div>
+            </div>
+          </div>
   </div>
 </div>
 
 <!-- modals -->
 	<!-- modal1 -->
-	<div class="modal fade" id="addAttendant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+	<div id="addAttendant" tabindex="-1" role="dialog" class="modal fade"><div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Attendant</h5>
@@ -125,7 +147,7 @@
             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" name="password" required="true">
           </div>
           <button type="submit" class="btn btn-primary" id="addAtt">Add Now</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
       </div>
     </div>
@@ -164,8 +186,7 @@
             <input type="password" class="form-control" id="edit-exampleInputPassword2" placeholder="Confirm Password" name="password" required="true">
           </div>
           <button type="submit" class="btn btn-primary" id="editAtt">Update</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -197,4 +218,9 @@
 <!-- /modals -->
 
  <div class="modal-overlay"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
    <?php include 'footer.php' ?>
