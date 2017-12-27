@@ -1,4 +1,9 @@
 $(document).ready(function(){
+
+	getStudents();
+	$('#manage-stu').click(function(){
+		getStudents();
+	});
 	$('#manage-att').click(function(){
 		attendants();
 	});

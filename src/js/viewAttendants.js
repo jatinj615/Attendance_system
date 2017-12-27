@@ -7,6 +7,12 @@ function deleteAtt(id){
 	});
 }
 
+function getStudents(){
+	$.post('../controllers/getStudents.php',function(data,status){
+		console.log(data);
+	});
+}
+
 function editAtt(id,name,email,phone_no){
 	// console.log(name);
 	$('#edit-att-name').val(name);

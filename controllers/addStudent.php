@@ -11,7 +11,7 @@ include 'dbconnect.php';
   	$course = $_REQUEST['course'];
   	$class = $_REQUEST['class'];
   	$address = $_REQUEST['address'];
-  	echo $query = 'Insert into students (name,email,password,phone_no,course,class,address) values("'.$name.'","'.$email.'","'.$password.'",'.$phone_no.',"'.$course.'",'.$class.'"'.$address.'")';
+  	$query = 'Insert into students (name,email,password,phone_no,course,class,address) values("'.$name.'","'.$email.'","'.$password.'",'.$phone_no.',"'.$course.'",'.$class.',"'.$address.'")';
   	$result = mysql_query($query);
   	if($result){
   		echo "Success";
