@@ -37,7 +37,7 @@ $(document).ready(function(){
 						}else{
 							alert(data);
 						}
-						
+
 						$('#course-name').val('');
 						$('#class').val('');
 						$('#stu-name').val('');
@@ -45,6 +45,7 @@ $(document).ready(function(){
 						$('#stu-phonenumber').val('');
 						$('#stu-exampleInputPassword1').val('');
 						$('#stu-address').val('');
+						$('#stu-exampleInputPassword2').val('');
 							
 					});
 				});
