@@ -5,7 +5,9 @@
   $db = $connect->connect();
   if($db){
   	$query = 'Select * from students';
-  	$result = mysql_query($query);
+  	$date = date("Y-m-d");
+    $result = mysql_query($query);
+
   	if($result && mysql_num_rows($result) > 0){
   		$i = 0;
   		while ($row = mysql_fetch_assoc($result)) {

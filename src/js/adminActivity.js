@@ -1,8 +1,7 @@
 $(document).ready(function(){
 	App.init();
-	getStudents();
 	$('#manage-stu').click(function(){
-		getStudents();
+		getAdminStudents();
 	});
 	$('#manage-att').click(function(){
 		attendants();

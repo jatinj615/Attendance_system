@@ -7,7 +7,7 @@ function deleteAtt(id){
 	});
 }
 
-function getStudents(){
+function getAdminStudents(){
 	$.post('../controllers/getStudents.php',function(data,status){
 		$('#tstubody').empty();
 		if(data != "No Attendants Found" && data != "Something Went Wrong"){

@@ -64,6 +64,27 @@
 	  	        </div>
 	  </div>
 </div>
+<!-- modals -->
+	<div id="mark-attendance" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <button type="submit" class="btn btn-primary" id="present" data-dismiss="modal">Present</button>
+        <button type="button" class="btn btn-danger" id="absent" data-dismiss="modal">Absent</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay"></div>
+<!-- /modals -->
 </div>
 </div>
 </div>
