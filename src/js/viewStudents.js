@@ -1,6 +1,5 @@
 function markAttendance(id){
 		$('#exampleModalLabel').html(id);
-		// console.log('end');
 	}
 
 	function getAttStudents(){

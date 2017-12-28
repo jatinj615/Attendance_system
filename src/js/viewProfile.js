@@ -13,13 +13,34 @@ function getProfile(id){
 }
 
 function changeStudentProfile(id,field){
-	var newfield = $('#new-stu-email').val();
+	if(field == 'email'){
+		var newfield = $('#new-stu-email').val();	
+	}else if (field == 'phone_no') {
+		var newfield = $('#new-stu-phone_no').val();
+	}
 	if(newfield != null && newfield.length > 0){
 		$.post('../controllers/changeProfile.php?id='+id+'&new='+newfield+'&field='+field,function(data,status){
 			alert(data);
 			getProfile(id);
 		});	
 	}else{
-		alert("Empty Email");
+		if(field == 'email'){
+			alert("Empty Email");
+		}else if (field == 'phone_no') {
+			alert("Empty Phone");
+		}
+	}
+}
+
+function changeStudentPassword(id){
+	var currentpass = $('#current-pass').val();
+	var new_pass = $('#new-pass').val();
+	var conf_newPass = $('#conf-new-pass').val();
+	if(conf_newPass == new_pass && conf_newPass!= null && conf_newPass.length > 0){
+		$.post('../controllers/changeStudentPasword.php?id='+id+'&current_pass='+currentpass+'&new_pass='+new_pass,function(data,status){
+			alert(data);
+		});
+	}else{
+		alert("Credentials Does Not match..");
 	}
 }

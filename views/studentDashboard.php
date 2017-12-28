@@ -89,7 +89,7 @@
             <label for="exampleInputEmail1">New Email address</label>
             <input type="email" class="form-control" id="new-stu-email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="">
           </div>
-          <button type="submit" class="btn btn-primary" id="email-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'email')" data-dismiss="modal">Change</button>
+          <button type="submit" class="btn btn-primary" id="email-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'email')">Change</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -113,9 +113,9 @@
 		</div>
 		<div class="form-group">
 		  <label for="phonenumber">New Phone Number</label>
-		  <input type="tel" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number" required="">
+		  <input type="tel" class="form-control" id="new-stu-phone_no" aria-describedby="emailHelp" placeholder="Enter phone number" required="">
 		</div>
-          <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone')" data-dismiss="modal">Change</button>
+          <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone_no')" data-dismiss="modal">Change</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
       </div>
@@ -136,17 +136,17 @@
       <div class="modal-body">
 		<div class="form-group">
 		  <label for="exampleInputPassword1">Current Password</label>
-		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Current Password" name="password" required="">
+		  <input type="password" class="form-control" id="current-pass" placeholder="Current Password" name="password" required="">
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputPassword1">New Password</label>
-		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password" name="password" required="">
+		  <input type="password" class="form-control" id="new-pass" placeholder="New Password" name="password" required="">
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputPassword1">Confirm New Password</label>
-		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name="password" required="">
+		  <input type="password" class="form-control" id="conf-new-pass" placeholder="Confirm Password" name="password" required="">
 		</div>
-          <button type="submit" class="btn btn-primary" id="pass-change" data-dismiss="modal" onclick="changeStudentPass(<?php echo $_SESSION['stu-id']?>)">Change</button>
+          <button type="submit" class="btn btn-primary" id="pass-change" onclick="changeStudentPassword(<?php echo $_SESSION['stu-id']?>)">Change</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
       </div>

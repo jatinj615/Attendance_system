@@ -12,7 +12,7 @@
 	  	if ($result) {
 	  		echo "Success";
 	  	}else{
-	  		echo "Already Marked";
+	  		echo "Already Marked For Today";
 	  	}
 	  }else{
 	  	echo "Something went wrong..!";
