@@ -1,6 +1,7 @@
 
 <script src="//cdn.viralwoot.com/v2/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="../src/js/viewAttendants.js"></script>
+<script src="../src/js/viewStudents.js"></script>
 <script src="../src/js/adminActivity.js"></script>
 <script src="../src/js/studentActivity.js"></script>
 <script src="../src/js/attendantActivity.js"></script>

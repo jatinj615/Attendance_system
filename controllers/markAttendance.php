@@ -12,7 +12,7 @@
 	  	if ($result) {
 	  		echo "Success";
 	  	}else{
-	  		echo "Failed";
+	  		echo "Already Marked";
 	  	}
 	  }else{
 	  	echo "Something went wrong..!";

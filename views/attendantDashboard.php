@@ -18,7 +18,7 @@
     <a class="nav-link active" id="mark-att" data-toggle="tab" href="#markAttendance" role="tab" aria-controls="home" aria-selected="true">Mark Attendance</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="view-att" data-toggle="tab" href="#viewAttendance" role="tab" aria-controls="profile" aria-selected="false">View Attendance</a>
+    <a class="nav-link" id="view-attendance" data-toggle="tab" href="#viewAttendance" role="tab" aria-controls="profile" aria-selected="false">View Attendance</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="book-studio" data-toggle="tab" href="#bookStudio" role="tab" aria-controls="contact" aria-selected="false">Book Studio</a>
@@ -41,7 +41,19 @@
 	  		  </table>
 	  		</div>
 	  <div class="tab-pane fade" id="viewAttendance" role="tabpanel" aria-labelledby="contact-tab">
-	  	
+	  		<table class="table table-hover">
+	  		    <thead>
+	  		      <tr>
+	  		        <th scope="col">id</th>
+	  		        <th scope="col">Name</th>
+	  		        <th scope="col">Course</th>
+	  		        <th scope="col">Class</th>
+	  		       	<th scope="col">View Attendance</th>
+	  		      </tr>
+	  		    </thead>
+	  		    <tbody id="tviewattendancebody">
+	  		    </tbody>
+	  		  </table>
 	  </div>
 	  <div class="tab-pane fade" id="bookStudio" role="tabpanel" aria-labelledby="contact-tab">
 	  	<div class="row" style="opacity: 0">
@@ -65,11 +77,12 @@
 	  </div>
 </div>
 <!-- modals -->
+<!-- modal1 -->
 	<div id="mark-attendance" tabindex="-1" role="dialog" class="modal fade">
 	<div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <h5 class="modal-title hidden" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -83,6 +96,35 @@
     </div>
   </div>
 </div>
+<!-- /modal1 -->
+<!-- modal2 -->
+	<div id="view-detail-attendance" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel1">Attendance Record</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th scope="col">Date</th>
+			        <th scope="col">Status</th>
+			      </tr>
+			    </thead>
+			    <tbody id="tviewstuattendancebody">
+			    </tbody>
+			  </table>
+          	
+			<button type="button" class="btn btn-default" id="absent" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal2 -->
 <div class="modal-overlay"></div>
 <!-- /modals -->
 </div>
