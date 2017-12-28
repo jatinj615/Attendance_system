@@ -120,7 +120,7 @@
 	<div id="addAttendant" tabindex="-1" role="dialog" class="modal fade"><div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Attendant</h5>
+        <h1 class="modal-title" id="exampleModalLabel">Add Attendant</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -159,7 +159,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Attendant</h5>
+        <h1 class="modal-title" id="exampleModalLabel">Edit Attendant</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -197,7 +197,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Student's Course Details</h5>
+        <h1 class="modal-title" id="exampleModalLabel">Student's Course Details</h1>
       </div>
       <div class="modal-body">
           <div class="form-group">

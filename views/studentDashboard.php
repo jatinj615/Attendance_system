@@ -32,7 +32,7 @@
 	  	    	
 	  	    </tbody>
 	  	  </table>
-	  	  <button class="btn btn-primary pull-right">Change Password</button>
+	  	  <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#change-password">Change Password</button>
 	  </div>
 	  <div class="tab-pane fade col-md-offset-4 col-md-4" id="viewAttendance" role="tabpanel" aria-labelledby="contact-tab">
 	  	<table class="table table-hover">
@@ -56,7 +56,7 @@
 	  	            <div class="widget be-loading">
 	  	              <div class="widget-chart-container">
 	  	                <div id="top-sales" style="width:1px; height: 178px;"></div>
-	  	                </div>
+	  	              </div>
 	  	              </div>
 	  	          </div>
 	  	          <div class="col-xs-12 col-md-4">
@@ -68,6 +68,94 @@
 
 	  </div>
 </div>
+
+<!-- modals -->
+<!-- modal1 -->
+<div id="editEmail" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div class="form-group">
+      	  <label for="exampleInputEmail1">Current Email address</label>
+      	  <input type="email" class="form-control" readonly="readonly" id="current-email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="">
+      	</div>
+      	<div class="form-group">
+            <label for="exampleInputEmail1">New Email address</label>
+            <input type="email" class="form-control" id="new-stu-email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="">
+          </div>
+          <button type="submit" class="btn btn-primary" id="email-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'email')" data-dismiss="modal">Change</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal1 -->
+<!-- modal2 -->
+<div id="editPhone" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<div class="form-group">
+		  <label for="phonenumber">Current Phone Number</label>
+		  <input type="tel" class="form-control" readonly="readonly" id="current-phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number" required="">
+		</div>
+		<div class="form-group">
+		  <label for="phonenumber">New Phone Number</label>
+		  <input type="tel" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number" required="">
+		</div>
+          <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone')" data-dismiss="modal">Change</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal2 -->
+<!-- modal3 -->
+<div id="change-password" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<div class="form-group">
+		  <label for="exampleInputPassword1">Current Password</label>
+		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Current Password" name="password" required="">
+		</div>
+		<div class="form-group">
+		  <label for="exampleInputPassword1">New Password</label>
+		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password" name="password" required="">
+		</div>
+		<div class="form-group">
+		  <label for="exampleInputPassword1">Confirm New Password</label>
+		  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name="password" required="">
+		</div>
+          <button type="submit" class="btn btn-primary" id="pass-change" data-dismiss="modal" onclick="changeStudentPass(<?php echo $_SESSION['stu-id']?>)">Change</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal3 -->
+<div class="modal-overlay"></div>
+<!-- /modals -->
 </div>
 </div>
 </div>
