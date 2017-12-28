@@ -8,7 +8,6 @@ $(document).ready(function(){
 		// $('#tattendancebody').empty();
 		// console.log("present");
 		$.post('../controllers/markAttendance.php?id='+id+'&attendance=1',function(data,status){
-			
 			alert(data);
 			getAttStudents();
 		});

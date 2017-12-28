@@ -10,7 +10,7 @@ function markAttendance(id){
 		if(data != 'No Students Found' && data != 'Something Went Wrong'){
 			for(var i = 0 ; i < obj['Student'].length ; i++){
 				
-				$('#tattendancebody').append('<tr><td>'+obj['Student'][i].id+'</td><td>'+obj['Student'][i].name+'</td><td>'+obj['Student'][i].course+'</td><td>'+obj['Student'][i].class+'</td><td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+obj['Student'][i].id+')">Mark</td></tr>');
+				$('#tattendancebody').append('<tr><td>'+obj['Student'][i].id+'</td><td>'+obj['Student'][i].name+'</td><td>'+obj['Student'][i].course+'</td><td>'+obj['Student'][i].class+'</td><td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+obj['Student'][i].id+')">Mark</button></td></tr>');
 			
 			}
 			

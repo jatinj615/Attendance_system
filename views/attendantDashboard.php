@@ -119,7 +119,7 @@
 			    </tbody>
 			  </table>
           	
-			<button type="button" class="btn btn-default" id="absent" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

@@ -16,7 +16,6 @@
     }else{
       echo "Something Went wrong...!";
     }
-    echo $query;
     $result = mysql_query($query);
     if($result && mysql_num_rows($result)>0){
       if($category == 'admin'){
@@ -42,7 +41,7 @@
         }
       }
     }else{
-      // header('Location: ../views/index.php');
+      header('Location: ../views/index.php');
     }
   }else{
     echo "Something Went wrong";

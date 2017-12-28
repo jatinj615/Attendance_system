@@ -37,6 +37,9 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
+          <th scope="col">Address</th>
+          <th scope="col">Course</th>
+          <th scope="col">Class</th>
           <th></th>
         </tr>
       </thead>
@@ -208,13 +211,111 @@
             <label for="name">Class</label>
             <input type="text" class="form-control" id="class" aria-describedby="emailHelp" placeholder="Enter name" required="true">
           </div>
-          <button type="submit" class="btn btn-primary" id="assignCourse">Assign</button>
+          <button type="submit" class="btn btn-primary" id="assignCourse" data-dismiss="modal">Assign</button>
 
       </div>
     </div>
   </div>
 </div>
 <!-- /modal3 -->
+<!-- modal4 -->
+<div class="modal fade" id="editStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Edit Student</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="edit-stu-name" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="edit-stu-exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="true">
+          </div>
+          <div class="form-group">
+            <label for="phonenumber">Phone Number</label>
+            <input type="tel" class="form-control" id="edit-stu-phonenumber" aria-describedby="emailHelp" placeholder="Enter phone number" required="true">
+          </div>
+          <div class="form-group">
+            <label for="name">Address</label>
+            <input type="text" class="form-control" id="edit-stu-address" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <div class="form-group">
+            <label for="name">Course</label>
+            <input type="text" class="form-control" id="edit-stu-course" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <div class="form-group">
+            <label for="name">Class</label>
+            <input type="text" class="form-control" id="edit-stu-class" aria-describedby="emailHelp" placeholder="Enter name" required="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="edit-stu-exampleInputPassword1" placeholder="Password" name="password" required="true">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Confirm Password</label>
+            <input type="password" class="form-control" id="edit-stu-exampleInputPassword2" placeholder="Confirm Password" name="password" required="true">
+          </div>
+          <button type="submit" class="btn btn-primary" id="editStu">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal4 -->
+<!-- modal5 -->
+<div id="view-detail-attendance" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel1">Attendance Record</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="tviewstuattendancebody">
+          </tbody>
+        </table>
+            
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal5 -->
+<!-- modal6 -->
+<div id="mark-attendance" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <button type="submit" class="btn btn-primary" id="present" data-dismiss="modal">Present</button>
+        <button type="button" class="btn btn-danger" id="absent" data-dismiss="modal">Absent</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal6 -->
 <!-- /modals -->
 
  <div class="modal-overlay"></div>

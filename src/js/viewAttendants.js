@@ -7,6 +7,15 @@ function deleteAtt(id){
 	});
 }
 
+function deleteStu(id){
+	$.post('../controllers/deleteStudent.php?id='+id,function(data,status){
+		if(data == "Successfully Deleted"){
+			alert(data);
+			getAdminStudents();
+		}
+	});
+}
+
 function getAdminStudents(){
 	$.post('../controllers/getStudents.php',function(data,status){
 		$('#tstubody').empty();
@@ -20,11 +29,53 @@ function getAdminStudents(){
 				// console.letog(name);
 				var email = obj['Student'][i].email;
 				var phone_no = obj['Student'][i].phone_no;
-				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td><a data-toggle="modal" data-target="#editAttendant" onclick="editAtt('+id+',\''+name+'\',\''+email+'\','+phone_no+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a href="#" onclick="deleteAtt('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
+				var address = obj['Student'][i].address;
+				var course = obj['Student'][i].course;
+				var clss = obj['Student'][i].class;
+				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td>'+address+'</td><td>'+course+'</td><td>'+clss+'</td><td><a title="Mark Attendance" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+id+')" style="margin-right: 2rem">Mark</a><a title="Attendance" data-toggle="modal" data-target="#view-detail-attendance" onclick="viewAttendance('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a><a title="Edit Details" data-toggle="modal" data-target="#editStudent" onclick="editStu('+id+',\''+name+'\',\''+email+'\','+phone_no+',\''+address+'\',\''+course+'\','+clss+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a title="Delete Profile" href="#" onclick="deleteStu('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
 			}
 			
 		}else{
 			alert(data);
+		}
+	});
+}
+
+function editStu(id,name,email,phone_no,address,course,clss){
+	// console.log(name);
+	$('#edit-stu-name').val(name);
+	$('#edit-stu-exampleInputEmail1').val(email);
+	$('#edit-stu-phonenumber').val(phone_no);
+	$('#edit-stu-address').val(address);
+	$('#edit-stu-course').val(course);
+	$('#edit-stu-class').val(clss);
+	
+	$('#editStu').click(function(){
+		console.log
+		var newname = $('#edit-stu-name').val();
+		var newemail = $('#edit-stu-exampleInputEmail1').val();
+		var newphone_no = $('#edit-stu-phonenumber').val();
+		var newaddress = $('#edit-stu-address').val();
+		var newcourse = $('#edit-stu-course').val();
+		var newclass = $('#edit-stu-class').val();
+		var newpassword = $('#edit-stu-exampleInputPassword1').val();
+		var confnewpass = $('#edit-stu-exampleInputPassword2').val();
+		if(newname != name || newemail != email || newphone_no != phone_no || newaddress != address || newcourse != course || newclass != clss){
+			if(newpassword == confnewpass){
+				$.post('../controllers/updateStudents.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
+					if(data == "Success"){
+						alert(data);
+						getAdminStudents();
+						// test();
+					}else{
+						alert(data);
+					}
+				});
+			}else{
+				alert("Password Does not match...!");
+			}
+		}else{
+			alert("Nothing to update..");
 		}
 	});
 }

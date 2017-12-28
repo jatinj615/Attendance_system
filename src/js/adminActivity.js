@@ -37,9 +37,17 @@ $(document).ready(function(){
 						}else{
 							alert(data);
 						}
+						
+						$('#course-name').val('');
+						$('#class').val('');
+						$('#stu-name').val('');
+						$('#stu-exampleInputEmail1').val('');
+						$('#stu-phonenumber').val('');
+						$('#stu-exampleInputPassword1').val('');
+						$('#stu-address').val('');
+							
 					});
 				});
-				
 			}else{
 				alert("All fields are required");
 			}
