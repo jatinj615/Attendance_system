@@ -66,8 +66,11 @@
 	  	            </div>
 	  	          </div>
 	  	        </div>
-			<div>
-				
+			<div class="col-md-offset-5 hidden" id="booking-form">
+				<p id="stu-id" class="hidden"><?php echo $_SESSION['stu-id'] ?></p>
+				<p id="studio-availability"><strong>Available : </strong></p>
+				<a href="#" id="studio-book-now" class="btn btn-primary">Book Now</a>
+				<a href="#" id="stuio-book-cancel" class="btn btn-danger">Cancel</a>
 			</div>
 	  </div>
 </div>

@@ -41,5 +41,22 @@ $(document).ready(function(){
 	});
 	});
 
+	$('#attendant-book-studio').click(function(){
+			$('#tstudiobody').empty();
+		$.post('../controllers/getStudents.php',function(data, status){
+			var obj = $.parseJSON(data);
+			if(data != 'No Students Found' && data != 'Something Went Wrong'){
+				for(var i = 0 ; i < obj['Student'].length ; i++){
+					
+					$('#tstudiobody').append('<tr><td>'+obj['Student'][i].id+'</td><td>'+obj['Student'][i].name+'</td><td>'+obj['Student'][i].course+'</td><td>'+obj['Student'][i].class+'</td><td><a class="btn btn-primary" data-toggle="modal" data-target="#book-student-studio" onclick="attendantBookStudio('+obj['Student'][i].id+')" href="#">Book Studio</a></td></tr>');
+				
+				}
+				
+			}else{
+				alert(data);
+			}
+		});
+	});
+
 });
 

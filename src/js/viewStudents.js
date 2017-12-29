@@ -2,6 +2,10 @@ function markAttendance(id){
 		$('#exampleModalLabel').html(id);
 	}
 
+function attendantBookStudio(id){
+	$('#stu-id').text(id);
+}
+
 	function getAttStudents(){
 		// console.log("called");
 		$('#tattendancebody').empty();

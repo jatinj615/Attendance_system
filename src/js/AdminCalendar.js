@@ -1,15 +1,15 @@
 
 
-function getBookedDates(type,id){
+function getBookedDates(type){
 	return $.post('../controllers/getBookings.php',function(data,status){
 		// if(data != 'No result found' && data != 'Something went wrong..'){
 				
 		// }
-		setCalendar(type,data,id);
+		setCalendar(type,data);
 		});
 
 }
-function setCalendar(type,data,id){
+function setCalendar(type,data){
 	// console.log(type);
 	// console.log(date);
 	if( type == 'manage'){
@@ -40,9 +40,14 @@ function setCalendar(type,data,id){
 		}
 		$(this).children().click(function(){
 			var booking_day = $(this).text();
-			var booking_month = $(this).parent().attr('data-month')+1;
+			var booking_month = parseInt($(this).parent().attr('data-month'))+1;
 			var booking_year = $(this).parent().attr('data-year');
-			console.log(booking_month);	
+			var id = $('#stu-id').text();
+			var date = booking_year+'-'+booking_month+'-'+booking_day;
+			getAvailabilityStudio(date,id);
+			// console.log(id);
+			// console.log(booking_month);
+				
 			getBookedDates('manage');
 		});
 		$(this).children().addClass('btn');
@@ -65,7 +70,7 @@ function setCalendar(type,data,id){
 			if(count == 2){
 				$(this).children().addClass('btn disabled');
 				$(this).addClass('disabled');
-			$(this).off('click');
+				$(this).off('click');
 			}
 		}
 		});
@@ -98,6 +103,27 @@ function setCalendar(type,data,id){
 	// }
 }
 
-function bookStudio(id,date){
+function bookStudio(date,id){
+	$.post('../controllers/bookStudio.php?date='+date+'&id='+id,function(data,status){
+		alert(data);
+	});
+	
+}
 
+function getAvailabilityStudio(date,id){
+	$.get('../controllers/getAvailabilityStudio.php?date='+date,function(data,status){
+		if( data != 'Something Went Wrong ...'){
+			$('#studio-availability').html('<strong>Available : </strong>'+data);
+			$('#booking-form').removeClass('hidden');
+			$('#studio-book-now').click(function(){
+				bookStudio(date,id)
+				$('#booking-form').addClass('hidden');
+			});
+			$('#stuio-book-cancel').click(function(){
+				$('#booking-form').addClass('hidden');
+			});
+		}else{
+			alert(data);
+		}
+	});
 }
