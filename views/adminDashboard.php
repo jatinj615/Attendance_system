@@ -8,7 +8,7 @@
  ?>
 
  <?php include 'header.php' ?>
- <div class="main-content container-fluid">
+ <div class="main-content container-fluid"  onclick="getBookedDates('manage')">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -24,7 +24,7 @@
     <a class="nav-link" id="manage-att" data-toggle="tab" href="#manageAttendants" role="tab" aria-controls="contact" aria-selected="false">Manage Attendants</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="manage-booking" data-toggle="tab" href="#manageBookings" role="tab" aria-controls="contact" aria-selected="false" onclick="getBookedDates('manage')">Manage Bookings</a>
+    <a class="nav-link" id="manage-booking" data-toggle="tab" href="#manageBookings" role="tab" aria-controls="contact" aria-selected="false">Manage Bookings</a>
   </li>
 </ul>
 
@@ -40,7 +40,9 @@
           <th scope="col">Address</th>
           <th scope="col">Course</th>
           <th scope="col">Class</th>
-          <th></th>
+          <th scope="col">Booking</th>
+          <th scope="col">Attendance</th>
+          <th scope="col">Profile</th>
         </tr>
       </thead>
       <tbody id="tstubody">
@@ -97,24 +99,7 @@
 	</div>
   </div>
   <div class="tab-pane fade" id="manageBookings" role="tabpanel" aria-labelledby="contact-tab">
-  	<div class="row" style="opacity: 0">
-            <div id="main-chart" style="width: 2px; height: 20px;"></div>
-            </div>
-                  
-          <div class="row">
-            <div class="col-xs-12 col-md-4" style="opacity: 0">
-              <div class="widget be-loading">
-                <div class="widget-chart-container">
-                  <div id="top-sales" style="width:2px; height: 178px;"></div>
-                  </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4">
-              <div class="widget widget-calendar be-loading">
-                <div id="calendar-widget" onclick="getBookedDates('manage')"></div>
-              </div>
-            </div>
-          </div>
+  	
   </div>
 </div>
 
@@ -317,7 +302,7 @@
 </div>
 <!-- /modal6 -->
 <!-- modal7 -->
-<div id="book-studio" tabindex="-1" role="dialog" class="modal fade">
+<div id="book-student-studio" tabindex="-1" role="dialog" class="modal fade">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -327,15 +312,66 @@
         </button>
       </div>
       <div class="modal-body">
-
-          <button type="submit" class="btn btn-primary" id="present" data-dismiss="modal">Present</button>
-        <button type="button" class="btn btn-danger" id="absent" data-dismiss="modal">Absent</button>
+      <div class="row" style="opacity: 0">
+                <div id="main-chart" style="width: 1px; height: 20px;"></div>
+                </div>
+                      
+              <div class="row">
+                <div class="col-xs-12 col-md-3" style="opacity: 0">
+                  <div class="widget be-loading">
+                    <div class="widget-chart-container">
+                      <div id="top-sales" style="width:1px; height: 178px;"></div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                  <div class="widget widget-calendar be-loading">
+                    <div id="calendar-widget"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-offset-4 hidden" id="booking-form">
+                <p id="stu-id" class="hidden"></p>
+                <p id="studio-availability"><strong>Available : </strong></p>
+                <a href="#" id="studio-book-now" class="btn btn-primary">Book Now</a>
+                <a href="#" id="stuio-book-cancel" class="btn btn-danger">Cancel</a>
+              </div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
       </div>
     </div>
   </div>
 </div>
 <!-- /modal7 -->
+<!-- modal8 -->
+
+<div id="view-detail-bookings" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel1">Bookings Record</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="tviewstudentBokings">
+          </tbody>
+        </table>
+            
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal8 -->
 <!-- /modals -->
 
  <div class="modal-overlay"></div>

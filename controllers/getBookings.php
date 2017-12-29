@@ -4,7 +4,7 @@
 	$connect = new DatabaseConnect();
 	$db = $connect->connect();
 	if($db){
-		$query = "Select * from bookings";
+		$query = "Select * from bookings where status!=0";
 		$result = mysql_query($query);
 		if($result && mysql_num_rows($result) > 0){
 			$i = 0;

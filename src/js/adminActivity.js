@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	App.init();
+	$('#manage-booking').click(function(){
+		showAllBookings();
+	});
+
 	$('#manage-stu').click(function(){
 		getAdminStudents();
 	});

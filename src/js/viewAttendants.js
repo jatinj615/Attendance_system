@@ -16,6 +16,28 @@ function deleteStu(id){
 	});
 }
 
+function viewBookings(id){
+	$('#tviewstudentBokings').empty();
+	$.post('../controllers/getStudentBooking.php?id='+id,function(data,status){
+		// console.log(data);
+		if(data != 'No Result found..' && data != 'Something went wrong..'){
+			var obj = $.parseJSON(data);
+			for( var i = 0 ; i < obj['bookings'].length ; i++){
+				if( obj['bookings'][i].status == 0){
+					obj['bookings'][i].status = 'Rejected'
+				}else if (obj['bookings'][i].status == 1) {
+					obj['bookings'][i].status = 'Booked';
+				}else if (obj['bookings'][i].status == 2) {
+					obj['bookings'][i].status = '-';
+				}
+				$('#tviewstudentBokings').append('<tr><td>'+obj['bookings'][i].booking_date+'</td><td>'+obj['bookings'][i].status+'</td></tr>');
+			}
+		}else{
+			alert(data);
+		}
+	});
+}
+
 function getAdminStudents(){
 	$.post('../controllers/getStudents.php',function(data,status){
 		$('#tstubody').empty();
@@ -32,7 +54,7 @@ function getAdminStudents(){
 				var address = obj['Student'][i].address;
 				var course = obj['Student'][i].course;
 				var clss = obj['Student'][i].class;
-				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td>'+address+'</td><td>'+course+'</td><td>'+clss+'</td><td><a title="Book Studio" class="btn btn-primary" data-toggle="modal" data-target="#book-studio" onclick="BookStudio('+id+')" style="margin-right: 2rem">Book Now</a><a title="Mark Attendance" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+id+')" style="margin-right: 2rem">Mark</a><a title="Attendance" data-toggle="modal" data-target="#view-detail-attendance" onclick="viewAttendance('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a><a title="Edit Details" data-toggle="modal" data-target="#editStudent" onclick="editStu('+id+',\''+name+'\',\''+email+'\','+phone_no+',\''+address+'\',\''+course+'\','+clss+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a title="Delete Profile" href="#" onclick="deleteStu('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
+				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td>'+address+'</td><td>'+course+'</td><td>'+clss+'</td><td><a title="Book Studio" class="btn btn-primary" data-toggle="modal" data-target="#book-student-studio" onclick="attendantBookStudio('+id+')" style="margin-right: 2rem">Book Now</a><a title="Bookings" data-toggle="modal" data-target="#view-detail-bookings" onclick="viewBookings('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Mark Attendance" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+id+')" style="margin-right: 2rem">Mark</a><a title="Attendance" data-toggle="modal" data-target="#view-detail-attendance" onclick="viewAttendance('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Edit Details" data-toggle="modal" data-target="#editStudent" onclick="editStu('+id+',\''+name+'\',\''+email+'\','+phone_no+',\''+address+'\',\''+course+'\','+clss+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a title="Delete Profile" href="#" onclick="deleteStu('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete"></span></a></td></tr>');
 			}
 			
 		}else{

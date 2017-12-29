@@ -5,7 +5,7 @@
   $db = $connect->connect();
   if($db){
   	$date = $_REQUEST['date'];
-  	$query = 'SELECT id from bookings where booking_date="'.$date.'"';
+  	$query = 'SELECT id from bookings where booking_date="'.$date.'" and status!=0';
   	$result = mysql_query($query);
   	$availability = 2;
   	if($result && mysql_num_rows($result) > 0){
