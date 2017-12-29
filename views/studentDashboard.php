@@ -8,7 +8,7 @@
  ?>
 
  <?php include 'header.php' ?>
- <div class="main-content container-fluid">
+ <div class="main-content container-fluid"  onclick="getBookedDates('manage',<?php echo $_SESSION['stu-id'];?>)">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -47,6 +47,7 @@
 	  	  </table>
 	  </div>
 	  <div class="tab-pane fade" id="bookStudio" role="tabpanel" aria-labelledby="contact-tab">
+	  		
 	  		<div class="row" style="opacity: 0">
 	  	          <div id="main-chart" style="width: 1px; height: 20px;"></div>
 	  	          </div>
@@ -65,7 +66,9 @@
 	  	            </div>
 	  	          </div>
 	  	        </div>
-
+			<div>
+				
+			</div>
 	  </div>
 </div>
 
@@ -154,6 +157,26 @@
   </div>
 </div>
 <!-- /modal3 -->
+<!-- modal4 -->
+<div id="studio-booking" tabindex="-1" role="dialog" class="modal fade">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel">Availablility</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<span id="studio-availability"></span>
+          <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone_no')" data-dismiss="modal">Book</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal4 -->
 <div class="modal-overlay"></div>
 <!-- /modals -->
 </div>

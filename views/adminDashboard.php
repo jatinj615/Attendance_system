@@ -8,7 +8,7 @@
  ?>
 
  <?php include 'header.php' ?>
- <div class="main-content container-fluid" onclick="getBookedDates('manage')">
+ <div class="main-content container-fluid">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -24,7 +24,7 @@
     <a class="nav-link" id="manage-att" data-toggle="tab" href="#manageAttendants" role="tab" aria-controls="contact" aria-selected="false">Manage Attendants</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="manage-booking" data-toggle="tab" href="#manageBookings" role="tab" aria-controls="contact" aria-selected="false">Manage Bookings</a>
+    <a class="nav-link" id="manage-booking" data-toggle="tab" href="#manageBookings" role="tab" aria-controls="contact" aria-selected="false" onclick="getBookedDates('manage')">Manage Bookings</a>
   </li>
 </ul>
 
@@ -111,7 +111,7 @@
             </div>
             <div class="col-xs-12 col-md-4">
               <div class="widget widget-calendar be-loading">
-                <div id="calendar-widget"></div>
+                <div id="calendar-widget" onclick="getBookedDates('manage')"></div>
               </div>
             </div>
           </div>
@@ -316,6 +316,26 @@
   </div>
 </div>
 <!-- /modal6 -->
+<!-- modal7 -->
+<div id="book-studio" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <button type="submit" class="btn btn-primary" id="present" data-dismiss="modal">Present</button>
+        <button type="button" class="btn btn-danger" id="absent" data-dismiss="modal">Absent</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal7 -->
 <!-- /modals -->
 
  <div class="modal-overlay"></div>
@@ -325,6 +345,6 @@
 </div>
 </div>
    <?php include 'footer.php' ?>
-   <script src="../src/js/AdminCalendar.js"></script>
+   
 </body>
 </html>
