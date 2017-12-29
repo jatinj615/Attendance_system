@@ -8,6 +8,31 @@
  ?>
 
  <?php include 'header.php' ?>
+ <div class="be-wrapper be-color-header">
+  <nav class="navbar navbar-default navbar-fixed-top be-top-header">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+            <div class="be-right-navbar">
+              <ul class="nav navbar-nav navbar-right be-user-nav">
+                <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="../src/images/default.png" alt="Avatar"><span class="user-name"><?php echo $_SESSION['att-name']; ?></span></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li>
+                      <div class="user-info">
+                        <div class="user-name"><?php echo $_SESSION['att-name']; ?></div>
+                        <div class="user-position online">Available</div>
+                      </div>
+                    </li>
+                    <li><a href="../controllers/logout.php?panel=attendant"><span class="icon mdi mdi-power"></span> Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="page-title"><span>Attendant Panel</span></div>
+              <ul class="nav navbar-nav navbar-right be-icons-nav">
+              </ul>
+            </div>
+          </div>
+        </nav>
  <div class="main-content container-fluid" onclick="getBookedDates('manage')">
       <div class="row">
         <div class="col-md-12">
@@ -29,7 +54,7 @@
 	  			   <table class="table table-hover">
 	  		    <thead>
 	  		      <tr>
-	  		        <th scope="col">id</th>
+	  		        <th scope="col">Id</th>
 	  		        <th scope="col">Name</th>
 	  		        <th scope="col">Course</th>
 	  		        <th scope="col">Class</th>
@@ -44,7 +69,7 @@
 	  		<table class="table table-hover">
 	  		    <thead>
 	  		      <tr>
-	  		        <th scope="col">id</th>
+	  		        <th scope="col">Id</th>
 	  		        <th scope="col">Name</th>
 	  		        <th scope="col">Course</th>
 	  		        <th scope="col">Class</th>
@@ -59,7 +84,7 @@
 	  		   <table class="table table-hover">
 	  	    <thead>
 	  	      <tr>
-	  	        <th scope="col">id</th>
+	  	        <th scope="col">Id</th>
 	  	        <th scope="col">Name</th>
 	  	        <th scope="col">Course</th>
 	  	        <th scope="col">Class</th>
@@ -164,6 +189,7 @@
 <!-- /modal3 -->
 <div class="modal-overlay"></div>
 <!-- /modals -->
+</div>
 </div>
 </div>
 </div>

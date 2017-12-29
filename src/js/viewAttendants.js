@@ -7,6 +7,34 @@ function deleteAtt(id){
 	});
 }
 
+function acceptBooking(id){
+	$.post('../controllers/acceptBooking.php?id='+id+'&status=1',function(data,status){
+		showAllBookings();
+		alert(data);
+	});
+}
+
+function rejectBooking(id){
+	$.post('../controllers/acceptBooking.php?id='+id+'&status=0',function(data,status){
+		showAllBookings();
+		alert(data);
+	});
+}
+
+function showAllBookings(){
+	$('#tallbookingsbody').empty()
+	$.get('../controllers/getAdminBookings.php',function(data,status){
+		if(data != 'No Result Found..' && data != 'Something Went Wrong..'){
+			var obj = $.parseJSON(data);
+			for( var i = 0 ; i < obj['bookings'].length ; i++){
+				$('#tallbookingsbody').append('<tr><td>'+obj['bookings'][i].id+'</td><td>'+obj['bookings'][i].name+'</td><td>'+obj['bookings'][i].email+'</td><td>'+obj['bookings'][i].phone_no+'</td><td>'+obj['bookings'][i].course+'</td><td>'+obj['bookings'][i].class+'</td><td>'+obj['bookings'][i].booking_date+'</td><td><a title="Accept Booking" class="btn btn-primary" onclick="acceptBooking('+obj['bookings'][i].bid+')" style="margin-right: 2rem">Accept</a><a title="Reject Booking" class="btn btn-danger" onclick="rejectBooking('+obj['bookings'][i].bid+')" style="margin-right: 2rem">Reject</a></td></tr>')
+			}
+		}else{
+			alert(data)
+		}
+	});
+}
+
 function deleteStu(id){
 	$.post('../controllers/deleteStudent.php?id='+id,function(data,status){
 		if(data == "Successfully Deleted"){
@@ -18,7 +46,7 @@ function deleteStu(id){
 
 function viewBookings(id){
 	$('#tviewstudentBokings').empty();
-	$.post('../controllers/getStudentBooking.php?id='+id,function(data,status){
+	$.get('../controllers/getStudentBooking.php?id='+id,function(data,status){
 		// console.log(data);
 		if(data != 'No Result found..' && data != 'Something went wrong..'){
 			var obj = $.parseJSON(data);
@@ -39,7 +67,7 @@ function viewBookings(id){
 }
 
 function getAdminStudents(){
-	$.post('../controllers/getStudents.php',function(data,status){
+	$.get('../controllers/getStudents.php',function(data,status){
 		$('#tstubody').empty();
 		if(data != "No Attendants Found" && data != "Something Went Wrong"){
 			var obj = $.parseJSON(data);
@@ -137,7 +165,7 @@ function test(){
 }
 
 function attendants(){
-	$.post('../controllers/getAttendants.php',function(data, status){
+	$.get('../controllers/getAttendants.php',function(data, status){
 		$('#tbody').empty();
 		if(data != "No Attendants Found" && data != "Something Went Wrong"){
 			var obj = $.parseJSON(data);
