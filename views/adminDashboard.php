@@ -8,7 +8,7 @@
  ?>
 
  <?php include 'header.php' ?>
- <div class="main-content container-fluid">
+ <div class="main-content container-fluid" onclick="getBookedDates('manage')">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -325,3 +325,6 @@
 </div>
 </div>
    <?php include 'footer.php' ?>
+   <script src="../src/js/AdminCalendar.js"></script>
+</body>
+</html>

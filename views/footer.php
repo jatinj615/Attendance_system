@@ -28,6 +28,4 @@
       
       });
     </script>
-    <script src="../src/js/Calendar.js"></script>
-  </body>
-</html>
+  
