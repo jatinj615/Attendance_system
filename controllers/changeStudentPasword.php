@@ -9,7 +9,7 @@ include 'dbconnect.php';
   	$id = $_REQUEST['id'];
   	$query = "Update students set password='".$new_pass."' where id=".$id." and password='".$current_pass."'";
   	$result = mysql_query($query);
-  	if ($result && mysql_affected_rows($result) > 0) {
+  	if ($result && mysql_affected_rows($result) >= 0) {
   		echo "Success";
   	}else{
   		echo "Password Entered is Incorrect";

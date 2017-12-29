@@ -14,20 +14,29 @@ function getProfile(id){
 
 function changeStudentProfile(id,field){
 	if(field == 'email'){
+		var oldfield = $('#current-email').val();
 		var newfield = $('#new-stu-email').val();	
 	}else if (field == 'phone_no') {
+		var oldfield = $('#current-phonenumber').val();
 		var newfield = $('#new-stu-phone_no').val();
 	}
-	if(newfield != null && newfield.length > 0){
-		$.post('../controllers/changeProfile.php?id='+id+'&new='+newfield+'&field='+field,function(data,status){
-			alert(data);
-			getProfile(id);
-		});	
+	if(newfield == oldfield){
+		alert('Nothing To Update');
 	}else{
-		if(field == 'email'){
-			alert("Empty Email");
-		}else if (field == 'phone_no') {
-			alert("Empty Phone");
+		if(newfield != null && newfield.length > 0){
+			$.post('../controllers/changeProfile.php?id='+id+'&new='+newfield+'&field='+field,function(data,status){
+				alert(data);
+				getProfile(id);
+				$('#new-stu-email').val('');
+				$('#new-stu-phone_no').val('');
+			});	
+		}else{
+			if(field == 'email'){
+				alert("Empty Email");
+			}else if (field == 'phone_no') {
+				alert("Empty Phone");
+			}
+
 		}
 	}
 }
@@ -39,6 +48,9 @@ function changeStudentPassword(id){
 	if(conf_newPass == new_pass && conf_newPass!= null && conf_newPass.length > 0){
 		$.post('../controllers/changeStudentPasword.php?id='+id+'&current_pass='+currentpass+'&new_pass='+new_pass,function(data,status){
 			alert(data);
+			$('#current-pass').val('');
+			$('#new-pass').val('');
+			$('#conf-new-pass').val('');
 		});
 	}else{
 		alert("Credentials Does Not match..");

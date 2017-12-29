@@ -148,7 +148,7 @@
 		</div>
           <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone_no')" data-dismiss="modal">Change</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
+      
       </div>
     </div>
   </div>
@@ -175,7 +175,7 @@
 		</div>
 		<div class="form-group">
 		  <label for="exampleInputPassword1">Confirm New Password</label>
-		  <input type="password" class="form-control" id="conf-new-pass" placeholder="Confirm Password" name="password" required="">
+		  <input type="password" data-parsley-equalto="#new-pass" class="form-control" id="conf-new-pass" placeholder="Confirm Password" name="password" required="">
 		</div>
           <button type="submit" class="btn btn-primary" id="pass-change" onclick="changeStudentPassword(<?php echo $_SESSION['stu-id']?>)">Change</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

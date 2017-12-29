@@ -12,7 +12,7 @@
     }elseif ($category == 'attendant') {
       $query = 'Select id,name from attendants where email="'.$email.'" and password="'.$pass.'"';
     }elseif ($category == 'admin') {
-      $query = 'Select id,name from admins where email="'.$email.'" and password="'.$pass.'"';
+      $query = 'Select id,name,email from admins where email="'.$email.'" and password="'.$pass.'"';
     }else{
       echo "Something Went wrong...!";
     }
@@ -21,6 +21,7 @@
       if($category == 'admin'){
         while($row = mysql_fetch_assoc($result)){
           // $admin = json_encode($row);
+          $_SESSION['admin-email'] = $row['email'];
           $_SESSION['admin-id'] = $row['id'];
           $_SESSION['admin-name'] = $row['name'];
           header('Location: ../views/adminDashboard.php');
