@@ -1,7 +1,7 @@
 
 
 function getBookedDates(type){
-	return $.post('../controllers/getBookings.php',function(data,status){
+	$.post('../controllers/getBookings.php',function(data,status){
 		// if(data != 'No result found' && data != 'Something went wrong..'){
 				
 		// }
@@ -38,20 +38,11 @@ function setCalendar(type,data){
 			$(this).addClass('disabled');
 			$(this).off('click');
 		}
-		$(this).children().click(function(){
-			var booking_day = $(this).text();
-			var booking_month = parseInt($(this).parent().attr('data-month'))+1;
-			var booking_year = $(this).parent().attr('data-year');
-			var id = $('#stu-id').text();
-			var date = booking_year+'-'+booking_month+'-'+booking_day;
-			getAvailabilityStudio(date,id);
-			// console.log(id);
-			// console.log(booking_month);
-				
-			getBookedDates('manage');
-		});
+		// console.log(data);
 		if(data != 'No result found' && data != 'Something went wrong..'){
+			// console.log('here');
 			var obj = $.parseJSON(data);
+			// console.log(obj);
 			var count = 0;
 			month = month+1;
 			date = new Date(year+'-'+month+'-'+day);
@@ -64,12 +55,26 @@ function setCalendar(type,data){
 					count++;
 				} 
 			}
+			// console.log(count);
 			if(count == 2){
 				$(this).children().addClass('btn disabled');
 				$(this).addClass('disabled');
 				$(this).off('click');
 			}
 		}
+		$(this).children().click(function(){
+			var booking_day = $(this).text();
+			var booking_month = parseInt($(this).parent().attr('data-month'))+1;
+			var booking_year = $(this).parent().attr('data-year');
+			var id = $('#stu-id').text();
+			var date = booking_year+'-'+booking_month+'-'+booking_day;
+			getAvailabilityStudio(date,id);
+			// console.log(id);
+			// console.log(booking_month);
+			
+			getBookedDates('manage');
+		});
+		
 		});
 	}
 }
@@ -82,18 +87,20 @@ function bookStudio(date,id){
 }
 
 function getAvailabilityStudio(date,id){
-	$.get('../controllers/getAvailabilityStudio.php?date='+date,function(data,status){
-		if( data != 'Something Went Wrong ...'){
+	$.post('../controllers/getAvailabilityStudio.php?date='+date,function(data,status){
+		if( data != 'Something Went Wrong ...' && data != 0){
 			$('#studio-availability').html('<strong>Available : </strong>'+data);
 			$('#booking-form').removeClass('hidden');
-			$('#studio-book-now').click(function(){
-				bookStudio(date,id)
+			$('#studio-book-now').one('click',function(){
+				// console.log('clicked');
+				getBookedDates('manage');	
+				bookStudio(date,id);
 				$('#booking-form').addClass('hidden');
 			});
 			$('#stuio-book-cancel').click(function(){
 				$('#booking-form').addClass('hidden');
 			});
-		}else{
+		}else if (data == 'Something Went Wrong ...') {
 			alert(data);
 		}
 	});

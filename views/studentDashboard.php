@@ -33,7 +33,7 @@
             </div>
           </div>
         </nav>
- <div class="main-content container-fluid"  onclick="getBookedDates('manage',<?php echo $_SESSION['stu-id'];?>)">
+ <div class="main-content container-fluid"  onclick="getBookedDates('manage')">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -46,7 +46,7 @@
     <a class="nav-link" onclick="viewAttendance(<?php echo $_SESSION['stu-id']?>)" id="view-stu-attendance" data-toggle="tab" href="#viewAttendance" role="tab" aria-controls="profile" aria-selected="false">View Attendance</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="manage-att" data-toggle="tab" href="#bookStudio" role="tab" aria-controls="contact" aria-selected="false">Book Studio</a>
+    <a class="nav-link" id="book-studio" data-toggle="tab" href="#bookStudio" role="tab" aria-controls="contact" aria-selected="false">Book Studio</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -185,26 +185,6 @@
   </div>
 </div>
 <!-- /modal3 -->
-<!-- modal4 -->
-<div id="studio-booking" tabindex="-1" role="dialog" class="modal fade">
-	<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title hidden" id="exampleModalLabel">Availablility</h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-			<span id="studio-availability"></span>
-          <button type="submit" class="btn btn-primary" id="phone-change" onclick="changeStudentProfile(<?php echo $_SESSION['stu-id']?>,'phone_no')" data-dismiss="modal">Book</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /modal4 -->
 <div class="modal-overlay"></div>
 <!-- /modals -->
 </div>

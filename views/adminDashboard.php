@@ -379,7 +379,6 @@
                 <a href="#" id="stuio-book-cancel" class="btn btn-danger">Cancel</a>
               </div>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ function rejectBooking(id){
 
 function showAllBookings(){
 	$('#tallbookingsbody').empty()
-	$.get('../controllers/getAdminBookings.php',function(data,status){
+	$.post('../controllers/getAdminBookings.php',function(data,status){
 		if(data != 'No Result Found..' && data != 'Something Went Wrong..'){
 			var obj = $.parseJSON(data);
 			for( var i = 0 ; i < obj['bookings'].length ; i++){
@@ -68,7 +68,7 @@ function deleteStu(id){
 
 function viewBookings(id){
 	$('#tviewstudentBokings').empty();
-	$.get('../controllers/getStudentBooking.php?id='+id,function(data,status){
+	$.post('../controllers/getStudentBooking.php?id='+id,function(data,status){
 		// console.log(data);
 		if(data != 'No Result found..' && data != 'Something went wrong..'){
 			var obj = $.parseJSON(data);
@@ -89,7 +89,7 @@ function viewBookings(id){
 }
 
 function getAdminStudents(){
-	$.get('../controllers/getStudents.php',function(data,status){
+	$.post('../controllers/getStudents.php',function(data,status){
 		$('#tstubody').empty();
 		if(data != "No Attendants Found" && data != "Something Went Wrong"){
 			var obj = $.parseJSON(data);
@@ -189,7 +189,7 @@ function test(){
 }
 
 function attendants(){
-	$.get('../controllers/getAttendants.php',function(data, status){
+	$.post('../controllers/getAttendants.php',function(data, status){
 		$('#tbody').empty();
 		if(data != "No Attendants Found" && data != "Something Went Wrong"){
 			var obj = $.parseJSON(data);
