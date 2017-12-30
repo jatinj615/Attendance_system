@@ -34,6 +34,28 @@ function showAllBookings(){
 		}
 	});
 }
+function sendMail(adminEmail){
+	var to_mail = $('#to-email').val();
+	var subject = $('#email-subject').val();
+	var body = $('#email-body').val();
+	if(to_mail && subject && body){
+		$.post('../controllers/sendMail.php?to='+to_mail+'&subject='+subject+'&body='+body+'&from='+adminEmail,function(data,status){
+			if(data == 'Success'){
+				alert('Send Successfully..');
+			}else{
+				alert(data);
+			}
+		});
+	}else{
+		alert('All Fields Required .. ')
+	}
+}
+
+function setMail(email){
+	$('#to-email').val(email);
+	$('#email-subject').val('');
+	$('#email-body').val('');
+}
 
 function deleteStu(id){
 	$.post('../controllers/deleteStudent.php?id='+id,function(data,status){
@@ -82,7 +104,7 @@ function getAdminStudents(){
 				var address = obj['Student'][i].address;
 				var course = obj['Student'][i].course;
 				var clss = obj['Student'][i].class;
-				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td>'+address+'</td><td>'+course+'</td><td>'+clss+'</td><td><a title="Book Studio" class="btn btn-primary" data-toggle="modal" data-target="#book-student-studio" onclick="attendantBookStudio('+id+')" style="margin-right: 2rem">Book Now</a><a title="Bookings" data-toggle="modal" data-target="#view-detail-bookings" onclick="viewBookings('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Mark Attendance" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+id+')" style="margin-right: 2rem">Mark</a><a title="Attendance" data-toggle="modal" data-target="#view-detail-attendance" onclick="viewAttendance('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Edit Details" data-toggle="modal" data-target="#editStudent" onclick="editStu('+id+',\''+name+'\',\''+email+'\','+phone_no+',\''+address+'\',\''+course+'\','+clss+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a title="Delete Profile" href="#" onclick="deleteStu('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete" style="margin-right: 2rem"></span></a><a title="Send Mail" href="#" data-toggle="modal" data-target="#student-send-mail" onclick="sendMail('+obj['Student'][i].email+')" class="btn btn-primary">Send Mail</a></td></tr>');
+				$('#tstubody').append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+email+'</td><td>'+phone_no+'</td><td>'+address+'</td><td>'+course+'</td><td>'+clss+'</td><td><a title="Book Studio" class="btn btn-primary" data-toggle="modal" data-target="#book-student-studio" onclick="attendantBookStudio('+id+')" style="margin-right: 2rem">Book Now</a><a title="Bookings" data-toggle="modal" data-target="#view-detail-bookings" onclick="viewBookings('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Mark Attendance" class="btn btn-primary" data-toggle="modal" data-target="#mark-attendance" onclick="markAttendance('+id+')" style="margin-right: 2rem">Mark</a><a title="Attendance" data-toggle="modal" data-target="#view-detail-attendance" onclick="viewAttendance('+id+')" href="#"><span class="mdi mdi-eye" style="margin-right: 2rem"></span></a></td><td><a title="Edit Details" data-toggle="modal" data-target="#editStudent" onclick="editStu('+id+',\''+name+'\',\''+email+'\','+phone_no+',\''+address+'\',\''+course+'\','+clss+')" href="#"><span class="mdi mdi-edit" style="margin-right: 2rem"></span></a><a title="Delete Profile" href="#" onclick="deleteStu('+obj['Student'][i].id+')" class="ml-4"><span class="mdi mdi-delete" style="margin-right: 2rem"></span></a><a title="Send Mail" href="#" data-toggle="modal" data-target="#student-send-mail" onclick="setMail("'+obj['Student'][i].email+'")" class="btn btn-primary">Send Mail</a></td></tr>');
 			}
 			
 		}else{
@@ -111,18 +133,20 @@ function editStu(id,name,email,phone_no,address,course,clss){
 		var newpassword = $('#edit-stu-exampleInputPassword1').val();
 		var confnewpass = $('#edit-stu-exampleInputPassword2').val();
 		if(newname != name || newemail != email || newphone_no != phone_no || newaddress != address || newcourse != course || newclass != clss){
-			if(newpassword == confnewpass){
-				$.post('../controllers/updateStudents.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
-					if(data == "Success"){
-						alert(data);
-						getAdminStudents();
-						// test();
-					}else{
-						alert(data);
-					}
-				});
-			}else{
-				alert("Password Does not match...!");
+			if(newname && newemail && newphone_no && newaddress && newcourse && newcourse && newclass && newpassword && confnewpass){
+				if(newpassword == confnewpass){
+					$.post('../controllers/updateStudents.php?id='+id+'&name='+newname+'&email='+newemail+'&phone_no='+newphone_no+'&password='+newpassword,function(data,status){
+						if(data == "Success"){
+							alert(data);
+							getAdminStudents();
+							// test();
+						}else{
+							alert(data);
+						}
+					});
+				}else{
+					alert("Password Does not match...!");
+				}
 			}
 		}else{
 			alert("Nothing to update..");

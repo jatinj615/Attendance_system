@@ -414,6 +414,39 @@
   </div>
 </div>
 <!-- /modal8 -->
+<!-- modal9 -->
+<div id="student-send-mail" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title hidden" id="exampleModalLabel"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">To:</label>
+                  <input type="email" class="form-control" id="to-email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Subject:</label>
+                  <input type="text" class="form-control" id="email-subject" aria-describedby="emailHelp" placeholder="Enter email" name="email" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Content</label>
+                  <textarea class="form-control" rows="5" id="email-body"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="sendEmail" data-dismiss="modal" onclick="sendMail("<?php echo $_SESSION['admin-email'] ?>")">Send</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal9 -->
 <!-- /modals -->
 
  <div class="modal-overlay"></div>
